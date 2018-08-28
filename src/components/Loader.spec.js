@@ -14,7 +14,5 @@ describe("Loader", () => {
     const loaderDiv = component.find("div");
     expect(loaderDiv).toBeDefined();
     expect(loaderDiv.hasClass("loader")).toBe(true);
-  });
-
-  
+  });  
 });

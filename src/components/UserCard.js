@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const UserCard = (props) => {
   const { id, first_name, last_name, avatar } = props;
@@ -6,7 +6,7 @@ const UserCard = (props) => {
 
     <div class="card user-container">
       <div className="user-avatar">
-        <img class="card-img-top" src={avatar} />
+        <img class="card-img-top" alt="Avatar" src={avatar} />
       </div>
       <div class="card-body user-info">
         <h5 class="card-title">{`${first_name} ${last_name}`}</h5>

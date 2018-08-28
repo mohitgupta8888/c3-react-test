@@ -42,7 +42,7 @@ describe("UserCard", () => {
   });
 
   it("test delete link click", () => {
-    const deleteLink = component.find("button");
+    const deleteLink = component.find("a");
     deleteLink.simulate("click");
     expect(onDelete).toBeCalled();
   });
