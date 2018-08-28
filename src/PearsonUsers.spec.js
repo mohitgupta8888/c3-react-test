@@ -62,14 +62,21 @@ describe("PearsonUsers", () => {
     expect(users.findIndex(u => u.id === 4)).toBe(-1);
   });
 
-  it("validate if api called", (done) => {
+  it("validate if load is showing initially", () => {
     component = mount(<PearsonUsers />);
+    expect(component.instance().state.isLoading).toBe(true);
+    expect(component.find("Loader").length).toBe(1);
+  });
 
+  it("validate if api called and state is updated correctly", (done) => {
+    component = mount(<PearsonUsers />);
     return userService.getUsers().then(() => {
+      expect(component.instance().state.isLoading).toBe(false);
       expect(component.instance().state.users.length).toBe(10);
       component.update();
       done();
     }).then(() => {
+      expect(component.find("Loader").length).toBe(0);
       expect(component.find("UserCard").length).toBe(10);
     });
   });
