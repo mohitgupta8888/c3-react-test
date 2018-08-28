@@ -1,6 +1,7 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { PearsonUsers } from "./PearsonUsers";
+import userService from './services/users';
 
 global.confirm = () => true;
 jest.mock('./services/users');
@@ -61,4 +62,15 @@ describe("PearsonUsers", () => {
     expect(users.findIndex(u => u.id === 4)).toBe(-1);
   });
 
+  it("validate if api called", (done) => {
+    component = mount(<PearsonUsers />);
+
+    return userService.getUsers().then(() => {
+      expect(component.instance().state.users.length).toBe(10);
+      component.update();
+      done();
+    }).then(() => {
+      expect(component.find("UserCard").length).toBe(10);
+    });
+  });
 });
