@@ -70,14 +70,14 @@ export class PearsonUsers extends Component {
   render() {
     return (
       <div className="pearon-users">
-        <div class="row">
-          <div class="col s12">
+        <div className="row">
+          <div className="col s12">
             <h1 className="page-title">Pearson User Management</h1>
           </div>
         </div>
         {/* Render users here */}
-        <div class="row">
-          <div class="col">
+        <div className="row">
+          <div className="col">
             <div className="users-container">
               {
                 this.state.isLoading && <Loader />

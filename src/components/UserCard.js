@@ -4,14 +4,14 @@ const UserCard = (props) => {
   const { id, first_name, last_name, avatar } = props;
   return (
 
-    <div class="card user-container">
+    <div className="card user-container">
       <div className="user-avatar">
-        <img class="card-img-top" alt="Avatar" src={avatar} />
+        <img className="card-img-top" alt="Avatar" src={avatar} />
       </div>
-      <div class="card-body user-info">
-        <h5 class="card-title">{`${first_name} ${last_name}`}</h5>
+      <div className="card-body user-info">
+        <h5 className="card-title">{`${first_name} ${last_name}`}</h5>
       </div>
-      <div class="card-footer">
+      <div className="card-footer">
         <a href="javascript: void(0)" onClick={() => props.onDelete(id)}>Delete</a>
       </div>
     </div>

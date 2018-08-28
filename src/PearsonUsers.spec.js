@@ -2,6 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import { PearsonUsers } from "./PearsonUsers";
 
+global.confirm = () => true;
 jest.mock('./services/users');
 
 describe("PearsonUsers", () => {
@@ -41,5 +42,23 @@ describe("PearsonUsers", () => {
 
     const mergedUsers = PearsonUsers.mergeUniqueItems(source, toBeAdded);
     expect(mergedUsers.length).toBe(2);
-  })
+  });
+
+  it("validate component state", () => {
+    expect(component.instance().state.users.length).toBe(3);
+  });
+
+  it("validate user cards", () => {
+    expect(component.find("UserCard").length).toBe(3);
+  });
+
+  it("validate delete user from state", () => {
+    const users = component.instance().state.users;
+    expect(users.length).toBe(3);
+    expect(users.findIndex(u => u.id === 4)).toBeGreaterThan(-1);
+    component.instance().confirmDelete(4);
+    expect(users.length).toBe(2);
+    expect(users.findIndex(u => u.id === 4)).toBe(-1);
+  });
+
 });
