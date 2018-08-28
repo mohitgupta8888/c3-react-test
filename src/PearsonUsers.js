@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import classNames from 'classnames';
 import userService from './services/users';
 import UserCard from './components/UserCard';
 import Loader from './components/Loader';
