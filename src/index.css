@@ -7,13 +7,13 @@ body {
 
 @media(min-width: 576px){
   .container {
-    max-width: 500px;
+    max-width: 498px;
   }
 }
 
 @media(min-width: 768px){
   .container {
-    max-width: 750px;
+    max-width: 747px;
   }
 }
 
@@ -23,11 +23,6 @@ body {
   }
 }
 
-@media(min-width: 1200px){
-  .container {
-    max-width: 1000px;
-  }
-}
 .loader {
   position: absolute;
   top: 50%;
