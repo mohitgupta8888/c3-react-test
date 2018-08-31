@@ -78,8 +78,8 @@ export class PearsonUsers extends Component {
           </div>
           {/* Render users here */}
           <div className="row users-container">
-            <div class="col-12">
-              <div class="card-deck">
+            <div className="col-12">
+              <div className="card-deck">
                 {
                   this.state.isLoading && <Loader />
                 }
