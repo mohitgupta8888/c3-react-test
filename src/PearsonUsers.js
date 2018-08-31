@@ -69,30 +69,32 @@ export class PearsonUsers extends Component {
 
   render() {
     return (
-      <div className="pearon-users">
-        <div className="row">
-          <div className="col s12">
-            <h1 className="page-title">Pearson User Management</h1>
+      <div className="row pearon-users">
+        <div className="col-12">
+          <div className="row">
+            <div className="col s12">
+              <h1 className="page-title">Pearson User Management</h1>
+            </div>
           </div>
-        </div>
-        {/* Render users here */}
-        <div className="row">
-          <div className="col">
-            <div className="users-container">
-              {
-                this.state.isLoading && <Loader />
-              }
-              {
-                this.state.users.map((userInfo, index) => {
-                  return (
-                    <UserCard
-                      key={userInfo.id}
-                      {...userInfo}
-                      onDelete={this.confirmDelete}
-                    />
-                  );
-                })
-              }
+          {/* Render users here */}
+          <div className="row users-container">
+            <div class="col-12">
+              <div class="card-deck">
+                {
+                  this.state.isLoading && <Loader />
+                }
+                {
+                  this.state.users.map((userInfo, index) => {
+                    return (
+                      <UserCard
+                        key={userInfo.id}
+                        {...userInfo}
+                        onDelete={this.confirmDelete}
+                      />
+                    );
+                  })
+                }
+              </div>
             </div>
           </div>
         </div>
